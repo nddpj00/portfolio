@@ -1,49 +1,46 @@
 
-import environ
 import os
+from environ import Env
 
-# Init environ variables
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# Read environment variables from a .env file
+env = Env()
+env.read_env()
 
-from pathlib import Path
+# False if not in os.environ because of casting above
+DEBUG = env('DEBUG')
 
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# Raises Django's ImproperlyConfigured
+# exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env('CLOUD_API_KEY'),
+    'API_SECRET': env('CLOUD_API_SECRET'),
+}
 
-ALLOWED_HOSTS = []
+# SECURITY SETTINGS
+ALLOWED_HOSTS = ['*']
 
-
-# Application definition
-
+# APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'corsheaders',
-
     'rest_framework',
-
-    'my_projects'
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
+    'my_projects',
 ]
 
+# MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,8 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_portfolio.urls'
-
+# TEMPLATE SETTINGS
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -73,74 +69,50 @@ TEMPLATES = [
     },
 ]
 
+# WSGI SETTINGS
 WSGI_APPLICATION = 'django_portfolio.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+# DATABASE SETTINGS
 DATABASES = {
     'default': {
-        # change sqlite3 for postgresql
-        'ENGINE':'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('DATABASE_NAME'),
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASS'),
         'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT')
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
+# PASSWORD VALIDATION SETTINGS
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
+# INTERNATIONALIZATION SETTINGS
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
+# STATIC FILES SETTINGS
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
+# DEFAULT PRIMARY KEY FIELD TYPE
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# REST FRAMEWORK SETTINGS
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'],
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Allow your React app's development server
-]
+# CORS SETTINGS
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+
+ROOT_URLCONF = 'django_portfolio.urls'
+
