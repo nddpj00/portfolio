@@ -21,9 +21,9 @@ const ProjectDisplay = () => {
   console.log("Render data:", data);
 
   return (
-    <div className="my-0">
+    <div>
       {data.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="my-4">
           <h3>Project Name: {item.title}</h3>
           <p>
             Description: <br></br>

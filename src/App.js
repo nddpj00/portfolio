@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import HeroContainer from "./components/HeroContainer";
 import ProjectDisplay from "./components/ProjectDisplay";
 
