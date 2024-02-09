@@ -1,10 +1,7 @@
 
 import os
 import environ
-
 import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
 env = environ.Env()
 environ.Env.read_env()
@@ -21,13 +18,6 @@ DEBUG = True if env('DEBUG') == 'True' else False
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': env('CLOUD_NAME'),
-#     'API_KEY': env('CLOUD_API_KEY'),
-#     'API_SECRET': env('CLOUD_API_SECRET'),
-# }
-
-# Cloudinary Configuration
 
 # SECURITY SETTINGS
 ALLOWED_HOSTS = ['*']
@@ -123,7 +113,13 @@ CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 
 ROOT_URLCONF = 'django_portfolio.urls'
 
-cloudinary.config(
-    cloudinary_url=env('CLOUDINARY_URL')
+cloudinary.config( 
+  cloud_name = env('CLOUDINARY_CLOUD_NAME'), 
+  api_key = env('CLOUDINARY_API_KEY'), 
+  api_secret = env("CLOUDINARY_API_SECRET"),
+  secure = True
 )
 
+
+import cloudinary.uploader
+import cloudinary.api
