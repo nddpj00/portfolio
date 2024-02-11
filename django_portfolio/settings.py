@@ -26,6 +26,7 @@ cloudinary.config(
   api_key = '224778259285798',
   api_secret = 'cM7Jac4Coucj8yFj71_QgyUKUhU',
 )
+CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
 # SECURITY SETTINGS
 ALLOWED_HOSTS = ['*']
