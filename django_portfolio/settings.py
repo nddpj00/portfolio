@@ -1,30 +1,36 @@
 
 import os
-from environ import Env
+import environ
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
+env = environ.Env()
+environ.Env.read_env()
 # Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Read environment variables from a .env file
-env = Env()
-env.read_env()
 
 # False if not in os.environ because of casting above
-DEBUG = env('DEBUG')
+DEBUG = True if env('DEBUG') == 'True' else False
+# print(env('TEST_VARIABLE'))
 
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env('CLOUD_API_KEY'),
-    'API_SECRET': env('CLOUD_API_SECRET'),
-}
+
+cloudinary.config( 
+  cloud_name = 'dhljiows0', 
+  api_key = '224778259285798',
+  api_secret = 'cM7Jac4Coucj8yFj71_QgyUKUhU',
+)
+CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
 # SECURITY SETTINGS
 ALLOWED_HOSTS = ['*']
-
+                 
 # APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -115,4 +121,6 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 
 ROOT_URLCONF = 'django_portfolio.urls'
+
+
 
