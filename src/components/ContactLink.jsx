@@ -1,7 +1,11 @@
 export default function ContactLink() {
   return (
-    <div className="w-4/12">
-      <a href="mailto:danieljones625@gmail.com ">Contact Me</a>
-    </div>
+    <a
+      href="mailto:danieljones625@gmail.com"
+      className="inline-flex items-center font-orbitron"
+    >
+      <span className="mr-2 text-lg">Contact Me</span>
+      <i className="fa-regular fa-paper-plane fa-spin" />
+    </a>
   );
 }
