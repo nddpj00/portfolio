@@ -16,8 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True if env('DEBUG') == 'True' else False
 # print(env('TEST_VARIABLE'))
 
-# Raises Django's ImproperlyConfigured
-# exception if SECRET_KEY not in os.environ
+
 SECRET_KEY = env('SECRET_KEY')
 
 
