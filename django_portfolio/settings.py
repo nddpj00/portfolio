@@ -1,9 +1,10 @@
-
+from pathlib import Path
 import os
 import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -28,7 +29,7 @@ cloudinary.config(
 CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
 # SECURITY SETTINGS
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
                  
 # APPLICATIONS
 INSTALLED_APPS = [
@@ -78,15 +79,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'django_portfolio.wsgi.application'
 
 # DATABASE SETTINGS
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DATABASE_NAME'),
+#         'USER': env('DATABASE_USER'),
+#         'PASSWORD': env('DATABASE_PASS'),
+#         'HOST': env('DATABASE_HOST'),
+#         'PORT': env('DATABASE_PORT'),
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASS'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
 }
 
 # PASSWORD VALIDATION SETTINGS
