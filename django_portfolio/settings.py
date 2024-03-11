@@ -29,7 +29,8 @@ cloudinary.config(
 CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
 # SECURITY SETTINGS
-ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
+# ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
+ALLOWED_HOSTS = ['*']
                  
 # APPLICATIONS
 INSTALLED_APPS = [
