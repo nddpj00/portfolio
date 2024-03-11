@@ -1,5 +1,3 @@
-import { Image } from "cloudinary-react";
-
 export default function HeroImage() {
   return (
     <div className="flex justify-right h-64">
