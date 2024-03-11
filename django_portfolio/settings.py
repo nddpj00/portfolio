@@ -1,9 +1,10 @@
-
+from pathlib import Path
 import os
 import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -16,8 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True if env('DEBUG') == 'True' else False
 # print(env('TEST_VARIABLE'))
 
-# Raises Django's ImproperlyConfigured
-# exception if SECRET_KEY not in os.environ
+
 SECRET_KEY = env('SECRET_KEY')
 
 
@@ -29,6 +29,7 @@ cloudinary.config(
 CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
 # SECURITY SETTINGS
+# ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
 ALLOWED_HOSTS = ['*']
                  
 # APPLICATIONS
@@ -79,15 +80,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'django_portfolio.wsgi.application'
 
 # DATABASE SETTINGS
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DATABASE_NAME'),
+#         'USER': env('DATABASE_USER'),
+#         'PASSWORD': env('DATABASE_PASS'),
+#         'HOST': env('DATABASE_HOST'),
+#         'PORT': env('DATABASE_PORT'),
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASS'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
 }
 
 # PASSWORD VALIDATION SETTINGS
@@ -118,7 +124,7 @@ REST_FRAMEWORK = {
 }
 
 # CORS SETTINGS
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'django_portfolio.urls'
 
