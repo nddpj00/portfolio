@@ -21,13 +21,15 @@ DEBUG = True if env('DEBUG') == 'True' else False
 SECRET_KEY = env('SECRET_KEY')
 
 
-cloudinary.config( 
-  cloud_name = 'dhljiows0', 
-  api_key = '224778259285798',
-  api_secret = 'cM7Jac4Coucj8yFj71_QgyUKUhU',
-)
-CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
+# cloudinary.config( 
+#   cloud_name = 'dhljiows0', 
+#   api_key = '224778259285798',
+#   api_secret = 'cM7Jac4Coucj8yFj71_QgyUKUhU',
+# )
+# CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
+
+CLOUDINARY_URL = env('CLOUDINARY_URL')
 # Define a default value for ALLOWED_HOSTS (can be overridden by environment variable)
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -116,8 +118,14 @@ USE_TZ = True
 
 # STATIC FILES SETTINGS
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+WHITENOISE_INDEX_FILE = True
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # replace 'static' with your static files directory name
+]
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -134,6 +142,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'django_portfolio.urls'
+
 
 
 
