@@ -1,5 +1,6 @@
-from pathlib import Path
+
 import os
+from pathlib import Path
 import environ
 import cloudinary
 import cloudinary.uploader
@@ -11,7 +12,6 @@ environ.Env.read_env()
 # Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Read environment variables from a .env file
 
 # False if not in os.environ because of casting above
 DEBUG = True if env('DEBUG') == 'True' else False
@@ -28,8 +28,12 @@ cloudinary.config(
 )
 CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
-# SECURITY SETTINGS
-ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
+# Define a default value for ALLOWED_HOSTS (can be overridden by environment variable)
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+# If running in production (DEBUG is False), use environment variable for ALLOWED_HOSTS
+if not DEBUG:
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
                  
 # APPLICATIONS
 INSTALLED_APPS = [
@@ -49,6 +53,7 @@ INSTALLED_APPS = [
 # MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -111,6 +116,9 @@ USE_TZ = True
 
 # STATIC FILES SETTINGS
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
