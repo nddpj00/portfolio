@@ -20,8 +20,8 @@ export default function App() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white min-h-screen">
-      <div className="sm:mx-6 md:mx-10 lg:mx-18 xl:mx-40">
+    <div className="bg-gradient-to-r from-cyan-50 to-orange-50 text-gray-700 min-h-screen">
+      <div className="mx-6 md:mx-14 lg:mx-18 xl:mx-40">
         <HeroContainer />
         <FilterProjects
           handleFilteredTechUpdate={handleFilteredTechUpdate}

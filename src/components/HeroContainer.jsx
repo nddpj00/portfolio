@@ -3,7 +3,7 @@ import Header from "./Header";
 import HeroImage from "./HeroImage";
 export default function HeroContainer() {
   return (
-    <div className="container mx-28">
+    <div className="mx-12">
       <Header />
       <HeroImage />
       <Introduction />
