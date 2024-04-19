@@ -17,7 +17,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
 
   return (
     <>
-      <h3 className="flex justify-center mb-5 sm:text-sm md:text-lg lg:text-lg text-gray-700">
+      <h3 className="flex justify-center mb-5 sm:text-sm md:text-lg lg:text-xl text-gray-700 font-league_spartan">
         Filter projects by language, framework or technology.
       </h3>
       <ul className=" grid justify-items-center gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-7 mb-6 sm:ml-4 sm:mr-4">

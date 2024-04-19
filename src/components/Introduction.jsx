@@ -23,11 +23,17 @@ export default function Introduction() {
   };
 
   return (
-    <div className=" justify-center h-40 mb-4">
+    <div className=" justify-center h-5 mb-4">
       <div className="text-xl">
+        <img
+          className=""
+          src="https://res.cloudinary.com/dhljiows0/image/upload/v1713542978/media/my_projects/images/portfolio_monitor_image_q8vhmd.png"
+          alt="monitor"
+          onClick={displayIntro}
+        />
         <button
           onClick={displayIntro}
-          className="bg-blue-500 hover:bg-blue-700 text-gray-700 font-orbitron py-2 px-4 border border-blue-700 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-gray-700 font-league_spartan py-2 px-4 border border-blue-700 rounded"
         >
           Click for introduction....
         </button>

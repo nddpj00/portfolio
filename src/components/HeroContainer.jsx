@@ -1,12 +1,16 @@
 import Introduction from "./Introduction";
-import Header from "./Header";
 import HeroImage from "./HeroImage";
+import ContactLink from "./ContactLink";
 export default function HeroContainer() {
   return (
     <div className="mx-12">
-      <Header />
-      <HeroImage />
-      <Introduction />
+      <ContactLink />
+      <span>
+        <HeroImage />
+      </span>
+      <span>
+        <Introduction />
+      </span>
     </div>
   );
 }

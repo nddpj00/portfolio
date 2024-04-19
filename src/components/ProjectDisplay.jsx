@@ -57,7 +57,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                 ></Image>
               </CloudinaryContext>
               <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2 text-center font-orbitron">
+                <div className="font-bold text-xl mb-2 text-center font-league_spartan">
                   <h3>{item.title}</h3>
                 </div>
                 <p className="text-lg">Description:</p>
