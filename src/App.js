@@ -20,18 +20,24 @@ export default function App() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-cyan-50 to-orange-50 text-gray-700 min-h-screen">
-      <div className="mx-6 md:mx-14 lg:mx-18 xl:mx-40">
-        <HeroContainer />
-        <FilterProjects
-          handleFilteredTechUpdate={handleFilteredTechUpdate}
-          filteredData={filteredData}
-        />
-        <ProjectDisplay
-          filteredTech={filteredTech}
-          handleFilteredDataUpdate={handleFilteredDataUpdate}
-          filteredData={filteredData}
-        />
+    <div className=" bg-gradient-to-r from-cyan-50 to-orange-50 text-gray-700 min-h-screen">
+      <div className="mx-6 md:mx-14 lg:mx-18 xl:mx-60">
+        <div>
+          <HeroContainer />
+        </div>
+        <div>
+          <FilterProjects
+            handleFilteredTechUpdate={handleFilteredTechUpdate}
+            filteredData={filteredData}
+          />
+        </div>
+        <div>
+          <ProjectDisplay
+            filteredTech={filteredTech}
+            handleFilteredDataUpdate={handleFilteredDataUpdate}
+            filteredData={filteredData}
+          />
+        </div>
       </div>
     </div>
   );

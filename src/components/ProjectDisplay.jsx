@@ -63,6 +63,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                 <p className="text-lg">Description:</p>
                 <p className="text-sm">{item.description}</p>
                 <div>
+                  <br />
                   <ul>
                     <li className="text-lg">Languages used:</li>
                     {item.language_used.map((language, index) => (
@@ -72,6 +73,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                     ))}
                   </ul>
                 </div>
+                <br />
                 <div>
                   <ul>
                     <li className="text-lg">Techstack & Technologies used:</li>
