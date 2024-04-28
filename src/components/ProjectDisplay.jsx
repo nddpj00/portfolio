@@ -42,6 +42,8 @@ const ProjectDisplay = ({ filteredTech }) => {
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center  overflow-hidden">
+      <div className="w-1/2 mx-auto h-1 my-6 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></div>
+
       <div className="max-w-sm mx-auto grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start lg:max-w-none group">
         {filteredData.map((item) => (
           <div
@@ -89,6 +91,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                     <a
                       className="animate-pulse text-yellow-300"
                       href={item.live_url}
+                      target="_blank"
                     >
                       Live Site
                     </a>
@@ -104,6 +107,7 @@ const ProjectDisplay = ({ filteredTech }) => {
           </div>
         ))}
       </div>
+      <div className="w-1/2 mx-auto h-1 my-6 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></div>
     </div>
   );
 };

@@ -17,7 +17,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
 
   return (
     <>
-      <h3 className="flex justify-center mb-5 sm:text-sm md:text-lg lg:text-xl text-gray-700 font-league_spartan mb-10">
+      <h3 className="flex justify-center mb-5 text-lg lg:text-xl text-gray-700 font-league_spartan mb-10">
         Filter projects by language, framework or technology.
       </h3>
       <ul className=" mb-10 grid justify-items-center gap-6 grid-cols-4 md:grid-cols-4 lg:grid-cols-8 mb-6 sm:ml-4 sm:mr-4">
@@ -33,7 +33,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="django-option"
-            className="inline-flex items-center p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
@@ -56,7 +56,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="react-option"
-            className="inline-flex items-center p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
@@ -80,7 +80,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="flask-option"
-            className="inline-flex items-center p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
@@ -103,7 +103,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="postgres-option"
-            className="inline-flex items-center  p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
@@ -126,7 +126,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="python-option"
-            className="inline-flex items-center p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
@@ -149,7 +149,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="javascript-option"
-            className="inline-flex items-center p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
@@ -172,7 +172,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="html-option"
-            className="inline-flex items-center p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
@@ -195,7 +195,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
           />
           <label
             htmlFor="css-option"
-            className="inline-flex items center p-2 text-white bg-white border-2 border-gray rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="inline-flex items-center p-2 border-2 border-gray rounded-lg cursor-pointer  dark:border-gray-700 peer-checked:animate-bounce peer-checked:border-blue-600  hover:bg-gray-700 dark:bg-gray-800"
           >
             <div className="block">
               <img
