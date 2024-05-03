@@ -29,6 +29,9 @@ SECRET_KEY = env('SECRET_KEY')
 # )
 # CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
+# SECURITY SETTINGS
+# ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 CLOUDINARY_URL = env('CLOUDINARY_URL')
 # Define a default value for ALLOWED_HOSTS (can be overridden by environment variable)
@@ -123,9 +126,10 @@ STATIC_URL = '/static/'
 WHITENOISE_INDEX_FILE = True
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # replace 'static' with your static files directory name
+    os.path.join(BASE_DIR, 'build', 'static'),  # Adjusted path
 ]
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 MEDIA_URL = '/media/'

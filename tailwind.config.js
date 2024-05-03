@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         orbitron: ["Orbitron", "sans-serif"],
+        league_spartan: ["League Spartan", "sans-serif"],
       },
     },
   },
