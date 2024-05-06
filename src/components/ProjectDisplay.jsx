@@ -9,7 +9,7 @@ const ProjectDisplay = ({ filteredTech }) => {
   useEffect(() => {
     console.log("Fetching data...");
     axios
-      .get("http://localhost:8000/projects/")
+      .get("https://dpj-portfolio-139efb7ef574.herokuapp.com/projects/")
       .then((response) => {
         console.log("Data fetched successfully:", response.data);
         const sortedData = response.data.sort(
