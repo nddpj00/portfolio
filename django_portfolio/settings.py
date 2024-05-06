@@ -31,17 +31,12 @@ SECRET_KEY = env('SECRET_KEY')
 # CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
 # SECURITY SETTINGS
-# ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+
 
 CLOUDINARY_URL = env('CLOUDINARY_URL')
 # Define a default value for ALLOWED_HOSTS (can be overridden by environment variable)
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
-# If running in production (DEBUG is False), use environment variable for ALLOWED_HOSTS
-if not DEBUG:
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
-                 
 # APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
