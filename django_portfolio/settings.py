@@ -1,17 +1,19 @@
 
-import os
+
 from pathlib import Path
 import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
+import os
 
 env = environ.Env()
 environ.Env.read_env()
 # Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+print("my base dir" + BASE_DIR)
 
 # False if not in os.environ because of casting above
 DEBUG = True if env('DEBUG') == 'True' else False
@@ -29,20 +31,16 @@ SECRET_KEY = env('SECRET_KEY')
 # CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
 
 # SECURITY SETTINGS
-# ALLOWED_HOSTS = ['dpj-porfolio.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+
 
 CLOUDINARY_URL = env('CLOUDINARY_URL')
 # Define a default value for ALLOWED_HOSTS (can be overridden by environment variable)
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
-# If running in production (DEBUG is False), use environment variable for ALLOWED_HOSTS
-if not DEBUG:
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
-                 
 # APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.staticfiles',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -50,7 +48,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'cloudinary_storage',
-    'django.contrib.staticfiles',
     'cloudinary',
     'my_projects',
 ]
@@ -120,14 +117,17 @@ USE_I18N = True
 USE_TZ = True
 
 # STATIC FILES SETTINGS
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 WHITENOISE_INDEX_FILE = True
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # replace 'static' with your static files directory name
+    os.path.join(BASE_DIR, 'static/'),
 ]
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 MEDIA_URL = '/media/'
