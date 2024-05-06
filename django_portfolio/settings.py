@@ -13,6 +13,7 @@ environ.Env.read_env()
 # Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+print("my base dir" + BASE_DIR)
 
 # False if not in os.environ because of casting above
 DEBUG = True if env('DEBUG') == 'True' else False
@@ -44,6 +45,7 @@ if not DEBUG:
 # APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.staticfiles',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,7 +53,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'cloudinary_storage',
-    'django.contrib.staticfiles',
     'cloudinary',
     'my_projects',
 ]
@@ -121,16 +122,15 @@ USE_I18N = True
 USE_TZ = True
 
 # STATIC FILES SETTINGS
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 WHITENOISE_INDEX_FILE = True
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Adjusted path
+    os.path.join(BASE_DIR, 'static/'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
