@@ -13,7 +13,6 @@ environ.Env.read_env()
 # Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-print("my base dir" + BASE_DIR)
 
 # False if not in os.environ because of casting above
 DEBUG = True if env('DEBUG') == 'True' else False
@@ -23,18 +22,8 @@ DEBUG = True if env('DEBUG') == 'True' else False
 SECRET_KEY = env('SECRET_KEY')
 
 
-# cloudinary.config( 
-#   cloud_name = 'dhljiows0', 
-#   api_key = '224778259285798',
-#   api_secret = 'cM7Jac4Coucj8yFj71_QgyUKUhU',
-# )
-# CLOUDINARY_CLOUD_NAME = env('CLOUDINARY_CLOUD_NAME')
-
-# SECURITY SETTINGS
-
-
 CLOUDINARY_URL = env('CLOUDINARY_URL')
-# Define a default value for ALLOWED_HOSTS (can be overridden by environment variable)
+
 ALLOWED_HOSTS = ['.herokuapp.com']
 
 # APPLICATIONS
@@ -123,6 +112,7 @@ WHITENOISE_INDEX_FILE = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),
+    'C:\Users\danie\Projects\django\portfolio\frontend\gui\staticfiles',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
