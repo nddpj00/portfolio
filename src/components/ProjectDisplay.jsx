@@ -89,15 +89,19 @@ const ProjectDisplay = ({ filteredTech }) => {
                 <div className="flex justify-between mt-4">
                   <div>
                     <a
-                      className="animate-pulse text-yellow-300"
+                      className="animate-pulse text-blue-800 font-bold hover:animate-none hover:text-blue-400"
                       href={item.live_url}
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Live Site
                     </a>
                   </div>
                   <div>
-                    <a className="text-green-500" href={item.git_url}>
+                    <a
+                      className="text-green-600 font-bold hover:text-green-400"
+                      href={item.git_url}
+                    >
                       Repo
                     </a>
                   </div>
