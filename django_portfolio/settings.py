@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 WHITENOISE_INDEX_FILE = True
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build', 'static'),  # Adjusted path
+    os.path.join(BASE_DIR, 'static'),  # Adjusted path
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
