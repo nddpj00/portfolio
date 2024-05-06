@@ -5,7 +5,7 @@ function FilterProjects({ handleFilteredTechUpdate, filteredData }) {
 
   useEffect(() => {
     handleFilteredTechUpdate(filteredTech);
-  }, [filteredTech]);
+  }, [filteredTech, handleFilteredTechUpdate]);
 
   const addTechToFilterArray = (e) => {
     const tech = e.target.value;
