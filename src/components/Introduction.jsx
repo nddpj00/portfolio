@@ -4,7 +4,12 @@ import { ReactTyped } from "react-typed"; // Corrected import
 export default function Introduction() {
   const [showIntro, setShowIntro] = useState(false);
 
-  const introText = `Hello and welcome to my site! I'm Daniel Jones, and welcome to my portfolio site. I'm a dynamic Software Developer whose journey from a rich background in sales to the tech industry showcases a unique blend of analytical prowess and problem-solving skills. With over two decades of experience in developing exceptional communication and project management skills, I've made a successful transition to software development, earning a Level 5 Diploma in Web Application Development. My portfolio is a testament to my expertise in HTML, CSS, JavaScript, and Python, along with frameworks like React, Flask, and Django. Through projects for non-profit organizations and a bespoke e-commerce site for a local business, I've demonstrated a deep commitment to crafting innovative, user-centric digital solutions. As I advance in my career, I am eager to leverage my skills in dynamic teams, driving success through technology and collaborative innovation.`;
+  const introText = `
+  Welcome to my portfolio site! I'm Daniel Jones, a dynamic Software Developer with a rich background in sales, now fully immersed in the tech industry. With over two decades of experience honing my communication and project management skills, I've transitioned successfully into software development, earning a Level 5 Diploma in Web Application Development.
+  
+  My portfolio showcases a range of projects that highlight my expertise in HTML, CSS, JavaScript, and Python, as well as frameworks like React, Flask, and Django. From non-profit initiatives to bespoke e-commerce solutions for local businesses, I'm committed to crafting innovative, user-centric digital solutions.
+  
+  Explore my projects, filter them by technology, and don't hesitate to get in touch via email. Let's connect and discuss how I can contribute to your next project or venture!`;
 
   const displayIntro = () => {
     setShowIntro(!showIntro);
