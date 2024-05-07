@@ -41,9 +41,11 @@ const ProjectDisplay = ({ filteredTech }) => {
   console.log("Filtered data:", filteredData);
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center  overflow-hidden">
-      <div className="w-1/2 mx-auto h-1 my-6 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></div>
-
+    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+      <div className="w-1/2 mx-auto h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></div>
+      <div className="flex justify-center mb-1 lg:mb-3">
+        <i className="fa-solid fa-angle-down fa-xl"></i>
+      </div>
       <div className="max-w-sm mx-auto grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start lg:max-w-none group">
         {filteredData.map((item) => (
           <div
