@@ -1,0 +1,107 @@
+/* ===============================
+   Admin readability and spacing
+   =============================== */
+
+/* General table cell padding for projects and technologies */
+.model-project td,
+.model-technology td {
+  padding: 10px 12px;
+  vertical-align: middle;
+  font-size: 0.95em;
+}
+
+/* Bold and slightly larger project titles */
+.model-project .field-title {
+  font-weight: bold;
+  font-size: 1.15em;
+  color: #1f2d3d;
+}
+
+/* Horizontal filter dropdowns */
+.filter-horizontal select {
+  min-width: 220px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #d0d7de;
+}
+
+/* Headings in content area */
+#content-main h1,
+#content-main h2 {
+  color: #1f2d3d; /* Darker navy for headings */
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Table headers */
+#content-main th {
+  background-color: #e8f0fe; /* Soft blue */
+  color: #1f2d3d;
+  font-weight: 600;
+}
+
+/* Table rows hover effect */
+.model-project tr:hover,
+.model-technology tr:hover {
+  background-color: #f0f4f8;
+}
+
+/* ===============================
+   JSON / ArrayField improvements
+   =============================== */
+
+/* Monospaced font for JSON arrays */
+textarea[name$="language_used"],
+textarea[name$="framework_used"] {
+  font-family: "Courier New", monospace;
+  font-size: 0.95em;
+  min-height: 3em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f9f9f9;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #cfd8dc;
+  transition: border 0.2s, background-color 0.2s;
+}
+
+/* Highlight valid/invalid JSON visually */
+textarea[name$="language_used"]:invalid,
+textarea[name$="framework_used"]:invalid {
+  border: 2px solid #e74c3c; /* red for invalid JSON */
+  background-color: #fdecea;
+}
+
+textarea[name$="language_used"]:valid,
+textarea[name$="framework_used"]:valid {
+  border: 2px solid #27ae60; /* green for valid JSON */
+  background-color: #eafaf1;
+}
+
+/* ===============================
+   Links and buttons improvements
+   =============================== */
+a {
+  color: #1e88e5;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+button,
+input[type="submit"] {
+  background-color: #1e88e5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #1565c0;
+}

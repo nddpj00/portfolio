@@ -1,0 +1,131 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "../index.css"; // we'll define fade CSS here
+
+const ProjectDisplay = ({ filteredTech }) => {
+  const [projects, setProjects] = useState([]);
+  const [displayedProjects, setDisplayedProjects] = useState([]);
+
+  const API_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://dpj-portfolio-139efb7ef574.herokuapp.com/projects/"
+      : "http://127.0.0.1:8000/projects/";
+
+  useEffect(() => {
+    axios
+      .get(API_URL)
+      .then((response) => {
+        const sortedData = response.data.sort(
+          (a, b) => new Date(b.date_created) - new Date(a.date_created)
+        );
+        setProjects(sortedData);
+        setDisplayedProjects(sortedData);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [API_URL]);
+
+  useEffect(() => {
+    if (filteredTech.length === 0) {
+      setDisplayedProjects(projects);
+    } else {
+      const filtered = projects.filter((project) => {
+        const techNames = [
+          ...project.languages_used.map((t) => t.name),
+          ...project.frameworks_used.map((t) => t.name),
+        ];
+        return filteredTech.every((tech) => techNames.includes(tech));
+      });
+      setDisplayedProjects(filtered);
+    }
+  }, [filteredTech, projects]);
+
+  return (
+    <div className="mt-10">
+      <h2 className="text-2xl font-bold mb-6 text-center">Projects</h2>
+
+      {displayedProjects.length > 0 ? (
+        <TransitionGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {displayedProjects.map((project) => (
+            <CSSTransition key={project.id} timeout={300} classNames="fade">
+              <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover"
+                  />
+                )}
+
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 mb-3">{project.description}</p>
+
+                  {/* Languages */}
+                  {project.languages_used.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {project.languages_used.map((lang) => (
+                        <span
+                          key={lang.id}
+                          className="px-2 py-1 bg-gray-200 text-sm rounded-lg"
+                        >
+                          {lang.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Frameworks */}
+                  {project.frameworks_used.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {project.frameworks_used.map((fw) => (
+                        <span
+                          key={fw.id}
+                          className="px-2 py-1 bg-gray-300 text-sm rounded-lg"
+                        >
+                          {fw.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Project Links */}
+                  <div className="flex flex-col gap-2 mt-3">
+                    {project.live_url && (
+                      <a
+                        href={project.live_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-blue-600 hover:underline font-medium"
+                      >
+                        🌐 Live Site
+                      </a>
+                    )}
+                    {project.git_url && (
+                      <a
+                        href={project.git_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-gray-700 hover:underline font-medium"
+                      >
+                        💻 GitHub Repo
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      ) : (
+        <p className="text-center col-span-full text-gray-500 text-lg mt-12">
+          No projects match the selected filters.
+        </p>
+      )}
+    </div>
+  );
+};
+
+export default ProjectDisplay;
