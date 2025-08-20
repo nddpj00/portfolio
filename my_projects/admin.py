@@ -4,12 +4,22 @@ from .models import Project, Technology
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date_created', 'live_url', 'git_url')
+    list_display = ('image_preview', 'title', 'date_created', 'live_url', 'git_url')
     search_fields = ('title', 'description')
     ordering = ('-date_created',)
     filter_horizontal = ('languages_used', 'frameworks_used')
-    
-    # Add these fields to the form explicitly
+
+    # Image preview in admin
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="height: 60px; border-radius: 6px; object-fit: cover;" />',
+                obj.image.url
+            )
+        return "-"
+    image_preview.short_description = 'Image'
+
+    # Fieldsets
     fieldsets = (
         (None, {
             'fields': ('title', 'description', 'image', 'date_created')
@@ -23,6 +33,7 @@ class ProjectAdmin(admin.ModelAdmin):
         }),
     )
 
+
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
     list_display = ('name', 'category_coloured')
@@ -30,6 +41,6 @@ class TechnologyAdmin(admin.ModelAdmin):
     list_filter = ('category',)
 
     def category_coloured(self, obj):
-        color = 'green' if obj.category == 'language' else 'blue'
-        return format_html('<span style="color: {};">{}</span>', color, obj.get_category_display())
+        color = '#27ae60' if obj.category == 'language' else '#3498db'
+        return format_html('<span style="color: {}; font-weight:600;">{}</span>', color, obj.get_category_display())
     category_coloured.short_description = 'Category'

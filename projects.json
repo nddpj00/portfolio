@@ -1,116 +1,102 @@
 [
-{
-  "model": "my_projects.project",
-  "pk": 2,
-  "fields": {
-    "title": "Sup Sup & Away!",
-    "description": "Interactive, front-end web app offers users recommendations on Paddleboarding destinations.",
-    "image": "image/upload/v1755615874/jtgzawtcghrwpwwqvl90.jpg",
-    "live_url": "https://nddpj00.github.io/sup-sup-away/",
-    "git_url": "https://github.com/nddpj00/sup-sup-away",
-    "date_created": "2024-01-01",
-    "languages_used": [
-      1,
-      2,
-      3
-    ],
-    "frameworks_used": [
-      7
-    ]
+  {
+    "model": "my_projects.project",
+    "pk": 2,
+    "fields": {
+      "title": "Sup Sup & Away!",
+      "description": "Interactive, front-end web app offers users recommendations on Paddleboarding destinations.",
+      "image": "image/upload/v1755615874/jtgzawtcghrwpwwqvl90.jpg",
+      "live_url": "https://nddpj00.github.io/sup-sup-away/",
+      "git_url": "https://github.com/nddpj00/sup-sup-away",
+      "date_created": "2024-01-01",
+      "languages_used": [1, 2, 3],
+      "frameworks_used": [7]
+    }
+  },
+  {
+    "model": "my_projects.project",
+    "pk": 3,
+    "fields": {
+      "title": "Balanced Diet Recipe Finder",
+      "description": "Web App that stores favourite recipes from websites and locations within cookbooks with a focus on eating a balanced and nutritious diet.",
+      "image": "image/upload/v1755617132/e5ts8oab4fyqzwlokwsh.png",
+      "live_url": "https://mealplanner-2.herokuapp.com/",
+      "git_url": "https://github.com/nddpj00/balanced-diet-menu-finder",
+      "date_created": "2024-02-01",
+      "languages_used": [1, 2, 3, 4],
+      "frameworks_used": [8, 9]
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 1,
+    "fields": {
+      "name": "HTML",
+      "category": "language"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 2,
+    "fields": {
+      "name": "CSS",
+      "category": "language"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 3,
+    "fields": {
+      "name": "JavaScript",
+      "category": "language"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 4,
+    "fields": {
+      "name": "Python",
+      "category": "language"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 5,
+    "fields": {
+      "name": "Django",
+      "category": "framework"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 6,
+    "fields": {
+      "name": "React",
+      "category": "framework"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 7,
+    "fields": {
+      "name": "jQuery",
+      "category": "framework"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 8,
+    "fields": {
+      "name": "PostgreSQL",
+      "category": "framework"
+    }
+  },
+  {
+    "model": "my_projects.technology",
+    "pk": 9,
+    "fields": {
+      "name": "Flask",
+      "category": "framework"
+    }
   }
-},
-{
-  "model": "my_projects.project",
-  "pk": 3,
-  "fields": {
-    "title": "Balanced Diet Recipe Finder",
-    "description": "Web App that stores favourite recipes from websites and locations within cookbooks with a focus on eating a balanced and nutritious diet.",
-    "image": "image/upload/v1755617132/e5ts8oab4fyqzwlokwsh.png",
-    "live_url": "https://mealplanner-2.herokuapp.com/",
-    "git_url": "https://github.com/nddpj00/balanced-diet-menu-finder",
-    "date_created": "2024-02-01",
-    "languages_used": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "frameworks_used": [
-      8,
-      9
-    ]
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 1,
-  "fields": {
-    "name": "HTML",
-    "category": "language"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 2,
-  "fields": {
-    "name": "CSS",
-    "category": "language"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 3,
-  "fields": {
-    "name": "JavaScript",
-    "category": "language"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 4,
-  "fields": {
-    "name": "Python",
-    "category": "language"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 5,
-  "fields": {
-    "name": "Django",
-    "category": "framework"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 6,
-  "fields": {
-    "name": "React",
-    "category": "framework"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 7,
-  "fields": {
-    "name": "jQuery",
-    "category": "framework"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 8,
-  "fields": {
-    "name": "PostgreSQL",
-    "category": "framework"
-  }
-},
-{
-  "model": "my_projects.technology",
-  "pk": 9,
-  "fields": {
-    "name": "Flask",
-    "category": "framework"
-  }
-}
 ]
