@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         orbitron: ["Orbitron", "sans-serif"],
         league_spartan: ["League Spartan", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       keyframes: {
         fadeIn: {

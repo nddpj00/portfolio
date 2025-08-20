@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import "../index.css"; // we'll define fade CSS here
+import "../index.css";
 
 const ProjectDisplay = ({ filteredTech }) => {
   const [projects, setProjects] = useState([]);
   const [displayedProjects, setDisplayedProjects] = useState([]);
+  const [loadedImages, setLoadedImages] = useState({});
 
   const API_URL =
     process.env.NODE_ENV === "production"
@@ -40,28 +41,43 @@ const ProjectDisplay = ({ filteredTech }) => {
     }
   }, [filteredTech, projects]);
 
+  const handleImageLoad = (id) => {
+    setLoadedImages((prev) => ({ ...prev, [id]: true }));
+  };
+
   return (
     <div className="mt-10">
-      <h2 className="text-2xl font-bold mb-6 text-center">Projects</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-100">
+        Projects
+      </h2>
 
       {displayedProjects.length > 0 ? (
         <TransitionGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayedProjects.map((project) => (
-            <CSSTransition key={project.id} timeout={300} classNames="fade">
-              <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+            <CSSTransition key={project.id} timeout={400} classNames="fade">
+              <div className="bg-gray-900 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                 {project.image && (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                  />
+                  <div
+                    className={`relative w-full h-64 bg-gray-700 ${
+                      !loadedImages[project.id] ? "shimmer" : ""
+                    }`}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={`w-full h-64 object-cover transition-opacity duration-700 ${
+                        loadedImages[project.id] ? "opacity-100" : "opacity-0"
+                      }`}
+                      onLoad={() => handleImageLoad(project.id)}
+                    />
+                  </div>
                 )}
 
-                <div className="p-4">
+                <div className="p-4 text-gray-100">
                   <h3 className="text-xl font-semibold mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-3">{project.description}</p>
+                  <p className="text-gray-300 mb-3">{project.description}</p>
 
                   {/* Languages */}
                   {project.languages_used.length > 0 && (
@@ -69,7 +85,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                       {project.languages_used.map((lang) => (
                         <span
                           key={lang.id}
-                          className="px-2 py-1 bg-gray-200 text-sm rounded-lg"
+                          className="px-2 py-1 bg-gray-700 text-sm rounded-lg border border-gray-600"
                         >
                           {lang.name}
                         </span>
@@ -83,7 +99,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                       {project.frameworks_used.map((fw) => (
                         <span
                           key={fw.id}
-                          className="px-2 py-1 bg-gray-300 text-sm rounded-lg"
+                          className="px-2 py-1 bg-gray-800 text-sm rounded-lg border border-gray-600"
                         >
                           {fw.name}
                         </span>
@@ -98,7 +114,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                         href={project.live_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block text-blue-600 hover:underline font-medium"
+                        className="inline-block text-blue-400 hover:text-blue-200 hover:underline font-medium"
                       >
                         🌐 Live Site
                       </a>
@@ -108,7 +124,7 @@ const ProjectDisplay = ({ filteredTech }) => {
                         href={project.git_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block text-gray-700 hover:underline font-medium"
+                        className="inline-block text-gray-400 hover:text-gray-200 hover:underline font-medium"
                       >
                         💻 GitHub Repo
                       </a>

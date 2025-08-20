@@ -10,7 +10,7 @@ class TechnologySerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     languages_used = TechnologySerializer(many=True, read_only=True)
     frameworks_used = TechnologySerializer(many=True, read_only=True)
-    image = serializers.ImageField(use_url=True)  # ensures full URL
+    image = serializers.ImageField(use_url=True)  # full URL for frontend
 
     class Meta:
         model = Project
