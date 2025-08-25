@@ -53,7 +53,7 @@ const ProjectDisplay = ({ filteredTech }) => {
           <TransitionGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayedProjects.map((project) => (
               <CSSTransition key={project.id} timeout={400} classNames="fade">
-                <div className="bg-gray-900 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div className="bg-gray-900 shadow-md rounded-2xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
                   {project.image && (
                     <div
                       className={`relative w-full h-64 bg-gray-700 ${
