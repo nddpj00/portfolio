@@ -1,110 +1,112 @@
 /* ===============================
-   General readability & spacing
+   General page & readability
    =============================== */
-.model-project td,
-.model-technology td {
-  padding: 12px 15px;
-  vertical-align: middle;
-  font-size: 0.95em;
+body,
+#content,
+.module {
+  background-color: #f5f7fa !important;
+  color: #1e1e2f !important;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
-/* Project titles */
-.model-project .field-title {
-  font-weight: 700;
-  font-size: 1.2em;
-  color: #1f2d3d;
-}
-
-/* Filter horizontal dropdowns */
-.filter-horizontal select {
-  min-width: 240px;
-  padding: 5px 8px;
-  border-radius: 6px;
-  border: 1px solid #d0d7de;
-}
-
-/* Headings */
 #content-main h1,
 #content-main h2 {
-  color: #1f2d3d;
-  font-family: "Segoe UI", sans-serif;
+  color: #1e1e2f !important;
+  font-weight: 700;
   margin-bottom: 16px;
 }
 
-/* Table headers */
+/* ===============================
+   Tables
+   =============================== */
 #content-main th {
-  background-color: #e8f0fe;
-  color: #1f2d3d;
-  font-weight: 600;
-  padding: 10px 12px;
+  background-color: #d6e0f0 !important;
+  color: #1e1e2f !important;
+  font-weight: 700;
 }
 
-/* Table row hover */
+.model-project tr,
+.model-technology tr {
+  background-color: #ffffff !important;
+}
+
 .model-project tr:hover,
 .model-technology tr:hover {
-  background-color: #f0f4f8;
+  background-color: #e2f0ff !important;
 }
 
-/* JSON / ArrayField improvements */
-textarea[name$="language_used"],
-textarea[name$="frameworks_used"] {
-  font-family: "Courier New", monospace;
-  font-size: 0.95em;
-  min-height: 3em;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  background-color: #f9f9f9;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #cfd8dc;
-  transition: border 0.2s, background-color 0.2s;
-}
-
-textarea[name$="language_used"]:invalid,
-textarea[name$="frameworks_used"]:invalid {
-  border: 2px solid #e74c3c;
-  background-color: #fdecea;
-}
-
-textarea[name$="language_used"]:valid,
-textarea[name$="frameworks_used"]:valid {
-  border: 2px solid #27ae60;
-  background-color: #eafaf1;
-}
-
-/* Links and buttons */
+/* ===============================
+   Buttons and links
+   =============================== */
 a {
-  color: #1e88e5;
+  color: #0d47a1 !important;
   text-decoration: none;
 }
-
 a:hover {
-  color: #1565c0;
+  color: #1565c0 !important;
   text-decoration: underline;
 }
 
 button,
 input[type="submit"] {
-  background-color: #1e88e5;
-  color: #fff;
-  border: none;
+  background-color: #0d47a1 !important;
+  color: #fff !important;
   border-radius: 4px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
-
 button:hover,
 input[type="submit"]:hover {
-  background-color: #1565c0;
+  background-color: #1565c0 !important;
 }
 
-/* Add a subtle card-style background for the form sections */
+/* ===============================
+   Fieldsets / Modules
+   =============================== */
 fieldset.module {
-  background-color: #fefefe;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  padding: 16px;
+  background-color: #ffffff !important;
+  border-radius: 10px;
+  border: 1px solid #cfd8dc;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* ===============================
+   Labels
+   =============================== */
+label {
+  font-weight: 600 !important;
+  color: #1e1e2f !important;
+}
+
+/* ===============================
+   ManyToMany as tags
+   =============================== */
+.filter-horizontal select[multiple] {
+  display: none; /* hide default multi-select */
+}
+
+.filter-horizontal .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.filter-horizontal .tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.9em;
+}
+
+.filter-horizontal .tag.selected {
+  background-color: #0d47a1;
+  color: #ffffff;
 }

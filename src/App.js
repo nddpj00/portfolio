@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     // Ensure the gradient covers the full viewport and content
-    <div className="min-h-screen bg-gradient-to-r from-cyan-50 to-orange-50 text-gray-700 flex flex-col">
+    <div className=" min-h-screen bg-gradient-to-r from-cyan-50 to-orange-50 text-gray-700 flex flex-col">
       <div className="mx-6 md:mx-14 lg:mx-18 xl:mx-60 flex-1">
         {/* Hero Section */}
         <div className="pt-8 md:pt-12 lg:pt-16">
