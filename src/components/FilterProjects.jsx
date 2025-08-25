@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 function FilterProjects({ handleFilteredTechUpdate }) {
   const [selectedTech, setSelectedTech] = useState([]);
 
-  // Whenever selectedTech changes, notify parent
+  // Notify parent whenever selectedTech changes
   useEffect(() => {
     handleFilteredTechUpdate(selectedTech);
   }, [selectedTech, handleFilteredTechUpdate]);
@@ -43,18 +44,30 @@ function FilterProjects({ handleFilteredTechUpdate }) {
     },
   ];
 
-  // Toggle selection
   const toggleTech = (tech) => {
     setSelectedTech((prev) =>
       prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
     );
   };
 
-  // Clear all filters
   const clearFilters = () => setSelectedTech([]);
 
   return (
-    <>
+    <div className="w-full">
+      {/* Animated Projects line moved here */}
+      <motion.div
+        className="flex items-center justify-center mt-10 mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+      >
+        <div className="flex-grow border-t border-gray-700"></div>
+        <span className="mx-4 text-xl font-semibold text-gray-700 tracking-wide">
+          Projects
+        </span>
+        <div className="flex-grow border-t border-gray-700"></div>
+      </motion.div>
+
       <h3 className="text-center mb-6 text-lg lg:text-xl text-gray-700 font-league_spartan">
         Filter projects by language, framework, or technology
       </h3>
@@ -81,15 +94,17 @@ function FilterProjects({ handleFilteredTechUpdate }) {
 
       {selectedTech.length > 0 && (
         <div className="flex justify-center mt-4">
-          <button
+          <motion.button
             onClick={clearFilters}
-            className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg font-medium"
+            className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-all"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             Clear Filters
-          </button>
+          </motion.button>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

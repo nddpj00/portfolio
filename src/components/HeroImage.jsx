@@ -7,7 +7,7 @@ export default function HeroImage() {
   const [typingDone, setTypingDone] = useState(false);
 
   return (
-    <div className="flex flex-col items-center py-6 md:py-12 lg:py-16">
+    <div className="flex flex-col items-center py-6 md:py-12 lg:py-16 mb-48">
       <div className="w-full max-w-lg mx-auto text-center">
         {/* Introduction with callback */}
         <Introduction onFinalTextStart={() => setTypingDone(true)} />
@@ -29,7 +29,7 @@ export default function HeroImage() {
         </div>
 
         {/* Dan Jones */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 font-poppins leading-tight mt-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 font-poppins leading-tight mt-16">
           Dan Jones
         </h1>
 

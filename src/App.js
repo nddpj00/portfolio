@@ -7,14 +7,6 @@ export default function App() {
   const [filteredTech, setFilteredTech] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
-  const handleFilteredTechUpdate = (filteredTech) => {
-    setFilteredTech(filteredTech);
-  };
-
-  const handleFilteredDataUpdate = (data) => {
-    setFilteredData(data);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-r from-cyan-50 to-orange-50 text-gray-700 flex flex-col">
       <div className="mx-6 md:mx-14 lg:mx-18 xl:mx-60 flex-1">
@@ -25,17 +17,14 @@ export default function App() {
 
         {/* Filter Section */}
         <div className="mt-10">
-          <FilterProjects
-            handleFilteredTechUpdate={handleFilteredTechUpdate}
-            filteredData={filteredData}
-          />
+          <FilterProjects handleFilteredTechUpdate={setFilteredTech} />
         </div>
 
-        {/* Projects */}
+        {/* Projects Grid */}
         <div className="mt-10 mb-20">
           <ProjectDisplay
             filteredTech={filteredTech}
-            handleFilteredDataUpdate={handleFilteredDataUpdate}
+            handleFilteredDataUpdate={setFilteredData}
             filteredData={filteredData}
           />
         </div>
